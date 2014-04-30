@@ -14,15 +14,6 @@
 
 @implementation CCModalTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,7 +46,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [NSString stringWithFormat:@"Row: %d", indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"Row: %d", indexPath.row + 1];
     
     return cell;
 }

@@ -10,22 +10,29 @@
 
 @interface CCMainTableViewController ()
 
+@property (nonatomic, strong) NSArray *details;
+
 @end
 
 @implementation CCMainTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.details = @[
+                     @"At first launch you can press 'Modal'",
+                     @"A modal table view (with nav controller)",
+                     @"will appear with a standard table",
+                     @"Now go into the app delegate",
+                     @"and uncomment the line in the method",
+                     @"- (void)changeAppearance.",
+                     @"Run the app again and press modal",
+                     @"it will now block the UI thread",
+                     @"memory starts to rocket upwards",
+                     @"in instruments it seems to be stuck",
+                     @"creating and inserting UIViews"
+                     ];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -45,7 +52,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 10;
+    return [self.details count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -53,7 +60,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [NSString stringWithFormat:@"Row: %d", indexPath.row + 1];
+    cell.textLabel.text = self.details[indexPath.row];
     
     return cell;
 }
