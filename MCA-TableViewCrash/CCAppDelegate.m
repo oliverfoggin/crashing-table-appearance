@@ -20,6 +20,7 @@
 
 - (void)changeAppearance
 {
+    // uncomment this line to make the app crash when moving to modal view
 //    [[UITableView appearance] setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bgimage"]]];
 }
 							
